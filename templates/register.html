@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - SQLShield Classifier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="auth-page">
+    <div class="auth-card">
+        <h1>SQLShield Classifier</h1>
+        <p class="subtitle">Create an account to use the SQL detection system</p>
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <form action="/register_user" method="post">
+            <input name="username" placeholder="Choose Username" required>
+            <input type="password" name="password" placeholder="Choose Password" required>
+            <button type="submit">Register</button>
+        </form>
+
+        <p>Already have an account? <a href="/">Login here</a></p>
+    </div>
+</div>
+
+</body>
+</html>

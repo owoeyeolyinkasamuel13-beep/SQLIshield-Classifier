@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Welcome, {{ user }}</h2>
+<p class="subtitle">Use the tools below to detect and classify SQL injection attacks.</p>
+
+<div class="dashboard-grid">
+    <div class="card">
+        <h3>Run Detection</h3>
+        <p>Submit a query and check whether it is safe or malicious.</p>
+        <a href="/detect"><button>Open Detector</button></a>
+    </div>
+
+    <div class="card">
+        <h3>View Logs</h3>
+        <p>See your previous activities, results, attack types, and timestamps.</p>
+        <a href="/logs"><button>View Logs</button></a>
+    </div>
+</div>
+
+<div class="chart-card">
+    <h3>Attack Type Summary</h3>
+    <div style="height:400px;">
+     <canvas id="attackChart"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const labels = {{ labels|tojson }};
+    const values = {{ values|tojson }};
+
+    console.log("Labels:", labels);
+    console.log("Values:", values);
+
+    const canvas = document.getElementById("attackChart");
+
+    if (!canvas) {
+        console.error("Canvas not found!");
+        return;
+    }
+
+    new Chart(canvas, {
+        type: "doughnut",
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: [
+                    "#22c55e",
+                    "#ef4444",
+                    "#8b5cf6",
+                    "#3b82f6",
+                    "#f97316",
+                    "#eab308",
+                    "#06b6d4"
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+});
+</script>
+
+{% endblock %}

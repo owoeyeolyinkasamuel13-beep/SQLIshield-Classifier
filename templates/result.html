@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Detection Result</h2>
+
+<div class="card result-card">
+    <p><strong>Query:</strong> {{ query }}</p>
+    <p>
+        <strong>Status:</strong>
+        <span class="{{ 'safe' if 'Safe' in result else 'danger' }}">
+            {{ result }}
+        </span>
+    </p>
+    <p><strong>Attack Type:</strong> {{ attack_type }}</p>
+<p>
+    <strong>Confidence Score:</strong>
+    <span class="
+        {% if confidence|float >= 0.8 %}
+            high-confidence
+        {% elif confidence|float >= 0.5 %}
+            medium-confidence
+        {% else %}
+            low-confidence
+        {% endif %}
+    ">
+        {{ (confidence|float * 100) | round(2) }}%
+    </span>
+</p>
+</div>
+
+<a href="/detect"><button>Check Another Query</button></a>
+
+{% endblock %}

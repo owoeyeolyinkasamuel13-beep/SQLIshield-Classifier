@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>SQL Injection Detection</h2>
+<p class="subtitle">Enter a SQL query below to detect whether it is safe or malicious and to identify the attack type.</p>
+
+<div class="card detect-card">
+    <form action="/predict" method="post">
+        <textarea name="query" rows="6" placeholder="Enter SQL query here..." required></textarea><br><br>
+        <button type="submit">Analyse Query</button>
+    </form>
+</div>
+
+{% endblock %}
