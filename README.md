@@ -135,26 +135,26 @@ The trained model was evaluated using standard classification metrics:
 
 | Metric    |     Result |
 | --------- | ---------: |
-| Accuracy  | **86.00%** |
-| Precision | **86.89%** |
-| Recall    | **85.96%** |
-| F1-Score  | **85.92%** |
+| Accuracy  | **94.52%** |
+| Precision | **95.00%** |
+| Recall    | **95.00%** |
+| F1-Score  | **94.00%** |
 
 ### Accuracy
 
-The model achieved an accuracy of **86%**, meaning that the system correctly classified a large proportion of the evaluated SQL queries.
+The model achieved an accuracy of **94.52%**, meaning that the system correctly classified a large proportion of the evaluated SQL queries.
 
 ### Precision
 
-The model achieved a precision of **86.89%**, indicating its ability to correctly identify queries classified as malicious.
+The model achieved a precision of **95.00%**, indicating its ability to correctly identify queries classified as malicious.
 
 ### Recall
 
-The recall score was **85.96%**, showing the model's ability to identify malicious SQL injection queries present in the test data.
+The recall score was **95.00%**, showing the model's ability to identify malicious SQL injection queries present in the test data.
 
 ### F1-Score
 
-The model achieved an F1-score of **85.92%**, providing a balance between precision and recall.
+The model achieved an F1-score of **94.00%**, providing a balance between precision and recall.
 
 ---
 
