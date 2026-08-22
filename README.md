@@ -42,8 +42,7 @@ CNN Detection Model
 Classification
    ↙             ↘
 Normal          Malicious
-   ↓                ↓
-Allow            Block/Log
+
 ```
 
 The query is first cleaned and converted into a numerical representation. The processed query is then passed to the CNN model, which analyses the learned patterns and produces a classification result.
